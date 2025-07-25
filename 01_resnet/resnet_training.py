@@ -170,7 +170,7 @@ def train_model(model, criterion, optimizer, scheduler, num_epochs=25):
             # Save the model if it has the best validation accuracy
             if phase == 'val' and epoch_acc_top1 > best_acc:
                 best_acc = epoch_acc_top1
-                torch.save(model.state_dict(), f'{MODEL_NAME}_best_weights.pth')  # Uncomment to save the best model
+                torch.save(model.state_dict(), f'{MODEL_NAME}_best_weights.pth')  # Save the best model
 
         # Print the epoch duration
         end_time = time.time()
