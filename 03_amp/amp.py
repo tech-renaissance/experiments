@@ -10,6 +10,7 @@ import time
 import os
 import logging
 from tqdm import tqdm
+from torch.cuda.amp import autocast, GradScaler   # UPDATED: AMP
 
 
 # Configure the data path and the logger
@@ -46,6 +47,8 @@ def train_model(model, device, dataloaders, dataset_sizes, criterion, optimizer,
     Function to train the model.
     """
     since = time.time()
+
+    scaler = GradScaler()  # UPDATED: AMP
 
     # Store training history for plotting
     history = {
@@ -85,12 +88,27 @@ def train_model(model, device, dataloaders, dataset_sizes, criterion, optimizer,
                 # Zero the parameter gradients
                 optimizer.zero_grad()
 
+                ### UPDATED: AMP (BEGIN) ###
                 with torch.set_grad_enabled(phase == 'train'):
-                    outputs = model(inputs)
-                    loss = criterion(outputs, labels)
                     if phase == 'train':
-                        loss.backward()
-                        optimizer.step()
+                        with autocast():
+                            outputs = model(inputs)
+                            loss = criterion(outputs, labels)
+                        scaler.scale(loss).backward()
+                        scaler.step(optimizer)
+                        scaler.update()
+                    else:
+                        outputs = model(inputs)
+                        loss = criterion(outputs, labels)
+                ### UPDATED: AMP (END) ###
+
+                # DELETED (The following 6 lines)
+                # with torch.set_grad_enabled(phase == 'train'):
+                #     outputs = model(inputs)
+                #     loss = criterion(outputs, labels)
+                #     if phase == 'train':
+                #         loss.backward()
+                #         optimizer.step()
 
                 # Statistics
                 batch_loss = loss.item()
