@@ -1,0 +1,45 @@
+Downloading TorrentNet_00.pth
+Downloading TorrentNet_01.pth
+Downloading TorrentNet_02.pth
+Downloading TorrentNet_03.pth
+Downloading TorrentNet_04.pth
+Downloading TorrentNet_05.pth
+Downloading TorrentNet_06.pth
+Downloading TorrentNet_07.pth
+Downloading TorrentNet_08.pth
+Downloading TorrentNet_09.pth
+Downloading TorrentNet_10.pth
+Downloading TorrentNet_11.pth
+Downloading TorrentNet_12.pth
+Downloading TorrentNet_13.pth
+Downloading TorrentNet_14.pth
+Downloading TorrentNet_15.pth
+Downloading TorrentNet_16.pth
+Using model: ./models/TorrentNet_00.pth (99.84%)
+Using model: ./models/TorrentNet_01.pth (99.83%)
+Using model: ./models/TorrentNet_02.pth (99.82%)
+Using model: ./models/TorrentNet_03.pth (99.82%)
+Using model: ./models/TorrentNet_04.pth (99.82%)
+Using model: ./models/TorrentNet_05.pth (99.82%)
+Using model: ./models/TorrentNet_06.pth (99.82%)
+Using model: ./models/TorrentNet_07.pth (99.82%)
+Using model: ./models/TorrentNet_08.pth (99.82%)
+Using model: ./models/TorrentNet_09.pth (99.82%)
+Using model: ./models/TorrentNet_10.pth (99.82%)
+Using model: ./models/TorrentNet_11.pth (99.82%)
+Using model: ./models/TorrentNet_12.pth (99.81%)
+Using model: ./models/TorrentNet_13.pth (99.81%)
+Using model: ./models/TorrentNet_14.pth (99.81%)
+Using model: ./models/TorrentNet_15.pth (99.81%)
+Using model: ./models/TorrentNet_16.pth (99.81%)
+
+Testing ensemble models:  [0, 9, 12, 13, 14]
+
+Best ensemble accuracy: 99.89%
+
+Testing eoe: 
+[0, 2, 3, 8, 13]
+[2, 4, 5, 15, 16]
+[1, 6, 7, 8, 10, 11, 15]
+
+Best eoe accuracy: 99.91%
