@@ -184,7 +184,7 @@ def main():
         print_and_record('Downloading TorrentNet_{:02d}.pth'.format(i))
 
     test_loader = torch.utils.data.DataLoader(
-        datasets.MNIST(root='..', train=False, transform=transforms.Compose([
+        datasets.MNIST(root='..', train=False, download=True, transform=transforms.Compose([
             transforms.ToTensor(),
             transforms.Normalize((0.1307,), (0.3081,))
         ])), batch_size=50, shuffle=False, num_workers=0)
